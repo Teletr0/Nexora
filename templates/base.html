@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DS Lab · Inspeção & Correção</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/ecommerce.css') }}">
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div id="sr-live" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<header class="topbar">
+  <div class="brand">DS <span>/ LAB</span></div>
+  <div class="progress-pills" role="group" aria-label="Progresso">
+    <span class="pill" id="pill-fund">Fundação</span>
+    <span class="pill" id="pill-missions">Missões</span>
+  </div>
+  <div class="controls">
+    <button id="speech-toggle" type="button" aria-pressed="false">🗣️ Narrar</button>
+  </div>
+</header>
+
+<main id="conteudo" tabindex="-1">
+  {% block content %}{% endblock %}
+</main>
+
+{% block scripts %}
+<script type="module" src="{{ url_for('static', filename='app.js') }}"></script>
+{% endblock %}
+</body>
+</html>

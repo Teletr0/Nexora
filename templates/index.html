@@ -1,0 +1,371 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero" id="inicio">
+  <p class="eyebrow">JavaScript Lab / Fase 01</p>
+  <h1>
+    Entenda o código.<br>
+    <span class="accent">Domine o comportamento.</span>
+  </h1>
+  <p class="lead">
+    Um laboratório prático de JavaScript e APIs. Explore os fundamentos,
+    investigue falhas e desenvolva o raciocínio necessário para corrigir
+    problemas reais em aplicações web.
+  </p>
+  <div class="hero-actions">
+    <a class="primary action-link" href="#fundacao">
+      Iniciar aprendizado <span aria-hidden="true">↓</span>
+    </a>
+    <a class="secondary action-link" href="#modulos">Explorar módulos</a>
+  </div>
+  <div class="hero-meta">
+    <span><i class="status-dot"></i> Ambiente interativo</span>
+    <span>05 conceitos fundamentais</span>
+    <span>06 missões práticas</span>
+  </div>
+</section>
+
+
+<section class="phase" id="fundacao">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Fase 01 / Fundamentos</p>
+      <h2>Construa sua base técnica</h2>
+      <p class="lead">
+        Cada conceito tem 3 partes: <strong>explicação</strong>,
+        <strong>exemplo que roda</strong> e <strong>mini-quiz</strong>.
+        Só libera as missões quando os 5 quizzes estiverem corretos.
+      </p>
+    </div>
+    <div class="section-counter" aria-label="Cinco conceitos">
+      <strong>05</strong><span>conceitos</span>
+    </div>
+  </div>
+
+  <div class="concepts" id="concepts">
+
+    <!-- 01 · DOM -->
+    <article class="concept" data-id="dom">
+      <header>
+        <span class="concept-number">01</span>
+        <h2>DOM</h2>
+        <span class="badge-read" hidden>✓ entendido</span>
+      </header>
+
+      <p>
+        O navegador lê o HTML e monta uma <strong>árvore de objetos em memória</strong>.
+        Cada tag vira um nó. JavaScript conversa com essa árvore — não com o arquivo.
+      </p>
+
+      <div class="concept-analogy">
+        <span aria-hidden="true">💡</span>
+        <p>
+          <strong>Analogia:</strong> o HTML é a planta da casa. O DOM é a casa
+          já construída. Você mexe na casa (DOM), não na planta (HTML).
+        </p>
+      </div>
+
+      <pre><code>const h = document.createElement("h3");
+h.textContent = "Novo título";
+document.body.append(h);</code></pre>
+
+      <div class="concept-gotcha">
+        <span aria-hidden="true">⚠️</span>
+        <p>
+          <strong>Armadilha:</strong> alterar o DOM muda a tela
+          <em>imediatamente</em>. Não existe "salvar" — é por isso que é
+          tão poderoso e tão fácil de errar.
+        </p>
+      </div>
+
+      <button class="try" data-demo="dom" type="button">Executar exemplo ao vivo</button>
+      <div class="demo-preview" hidden></div>
+
+      <fieldset class="concept-quiz">
+        <legend>Verifique seu entendimento</legend>
+        <p class="quiz-q">O que é o DOM?</p>
+        <label><input type="radio" name="q-dom" value="0"> Uma linguagem de programação para HTML</label>
+        <label><input type="radio" name="q-dom" value="1"> A representação do HTML como árvore de objetos que o JS manipula</label>
+        <label><input type="radio" name="q-dom" value="2"> Um banco de dados que guarda as tags</label>
+        <button class="quiz-check" type="button">Verificar resposta</button>
+        <div class="quiz-feedback" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <button class="mark-seen" type="button" disabled>Acerto o quiz para liberar</button>
+    </article>
+
+    <!-- 02 · API -->
+    <article class="concept" data-id="api">
+      <header>
+        <span class="concept-number">02</span>
+        <h2>API</h2>
+        <span class="badge-read" hidden>✓ entendido</span>
+      </header>
+
+      <p>
+        Uma API é um <strong>contrato</strong>: "mande um pedido para esta URL,
+        no formato X, e te devolvo no formato Y". O servidor não sabe quem você é —
+        só responde o que foi combinado.
+      </p>
+
+      <div class="concept-analogy">
+        <span aria-hidden="true">💡</span>
+        <p>
+          <strong>Analogia:</strong> é como garçom de restaurante. Você não
+          entra na cozinha — faz o pedido pelo cardápio (a URL) e recebe
+          o prato pronto (a resposta).
+        </p>
+      </div>
+
+      <pre><code>GET /api/usuarios
+GET /api/usuarios?scenario=error</code></pre>
+
+      <div class="concept-gotcha">
+        <span aria-hidden="true">⚠️</span>
+        <p>
+          <strong>Armadilha:</strong> a mesma URL pode responder de formas
+          diferentes (200 com lista, 500 com erro). Seu código precisa
+          tratar <em>todos</em> os casos.
+        </p>
+      </div>
+
+      <fieldset class="concept-quiz">
+        <legend>Verifique seu entendimento</legend>
+        <p class="quiz-q">O que uma API define?</p>
+        <label><input type="radio" name="q-api" value="0"> Um arquivo JSON estático</label>
+        <label><input type="radio" name="q-api" value="1"> Um contrato de comunicação entre sistemas</label>
+        <label><input type="radio" name="q-api" value="2"> Um framework de JavaScript</label>
+        <button class="quiz-check" type="button">Verificar resposta</button>
+        <div class="quiz-feedback" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <button class="mark-seen" type="button" disabled>Acerto o quiz para liberar</button>
+    </article>
+
+    <!-- 03 · Promise -->
+    <article class="concept" data-id="promise">
+      <header>
+        <span class="concept-number">03</span>
+        <h2>Promise</h2>
+        <span class="badge-read" hidden>✓ entendido</span>
+      </header>
+
+      <p>
+        Uma Promise é um <strong>recibo de valor futuro</strong>. Você recebe
+        o recibo <em>agora</em>, o valor <em>depois</em>. Só pode terminar de
+        duas formas: resolvida (chegou) ou rejeitada (falhou).
+      </p>
+
+      <div class="concept-analogy">
+        <span aria-hidden="true">💡</span>
+        <p>
+          <strong>Analogia:</strong> o buzzer de restaurante. Você faz o pedido
+          e recebe um aparelho. Não tem comida ainda — mas tem a garantia de
+          que vai chegar.
+        </p>
+      </div>
+
+      <pre><code>const p = fetch("/api/usuarios");  // Promise
+const res = await p;                // Response
+const dados = await res.json();     // array</code></pre>
+
+      <div class="concept-gotcha">
+        <span aria-hidden="true">⚠️</span>
+        <p>
+          <strong>Armadilha:</strong> esquecer o <code>await</code> é o erro #1.
+          Sem ele, você fica com a <em>Promise</em>, não com o valor.
+        </p>
+      </div>
+
+      <fieldset class="concept-quiz">
+        <legend>Verifique seu entendimento</legend>
+        <p class="quiz-q">O que <code>fetch(url)</code> retorna imediatamente?</p>
+        <label><input type="radio" name="q-promise" value="0"> Os dados da API</label>
+        <label><input type="radio" name="q-promise" value="1"> Uma Promise</label>
+        <label><input type="radio" name="q-promise" value="2"> Um erro</label>
+        <button class="quiz-check" type="button">Verificar resposta</button>
+        <div class="quiz-feedback" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <button class="mark-seen" type="button" disabled>Acerto o quiz para liberar</button>
+    </article>
+
+    <!-- 04 · Fetch/HTTP -->
+    <article class="concept" data-id="fetch">
+      <header>
+        <span class="concept-number">04</span>
+        <h2>Fetch e HTTP</h2>
+        <span class="badge-read" hidden>✓ entendido</span>
+      </header>
+
+      <p>
+        <code>fetch()</code> é a função que faz requisições. Você envia uma URL
+        e recebe uma <strong>Response</strong> com status, cabeçalhos e corpo.
+        HTTP é o protocolo — o "idioma" que os dois lados falam.
+      </p>
+
+      <div class="concept-analogy">
+        <span aria-hidden="true">💡</span>
+        <p>
+          <strong>Analogia:</strong> mandar carta registrada. Você escreve
+          um endereço (URL), e recebe de volta um envelope com status
+          (200, 404, 500) e conteúdo.
+        </p>
+      </div>
+
+      <pre><code>const res = await fetch(url);
+if (!res.ok) throw new Error(`HTTP ${res.status}`);
+const dados = await res.json();</code></pre>
+
+      <div class="concept-gotcha">
+        <span aria-hidden="true">⚠️</span>
+        <p>
+          <strong>Armadilha:</strong> <code>fetch</code> NÃO rejeita a Promise
+          em 404 ou 500. Ele só falha se a rede cair. Você precisa checar
+          <code>res.ok</code> manualmente.
+        </p>
+      </div>
+
+      <fieldset class="concept-quiz">
+        <legend>Verifique seu entendimento</legend>
+        <p class="quiz-q">O servidor responde com status 500. O que <code>fetch</code> faz?</p>
+        <label><input type="radio" name="q-fetch" value="0"> Rejeita a Promise automaticamente</label>
+        <label><input type="radio" name="q-fetch" value="1"> Entrega uma Response com <code>ok = false</code></label>
+        <label><input type="radio" name="q-fetch" value="2"> Retorna <code>null</code></label>
+        <button class="quiz-check" type="button">Verificar resposta</button>
+        <div class="quiz-feedback" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <button class="mark-seen" type="button" disabled>Acerto o quiz para liberar</button>
+    </article>
+
+    <!-- 05 · JSON -->
+    <article class="concept" data-id="json">
+      <header>
+        <span class="concept-number">05</span>
+        <h2>JSON</h2>
+        <span class="badge-read" hidden>✓ entendido</span>
+      </header>
+
+      <p>
+        JSON é um <strong>formato de texto</strong> para estruturar dados.
+        Parece objeto JavaScript, mas é uma string. Precisa de
+        <code>JSON.parse</code> para virar objeto de verdade.
+      </p>
+
+      <div class="concept-analogy">
+        <span aria-hidden="true">💡</span>
+        <p>
+          <strong>Analogia:</strong> receita escrita à mão. Você precisa
+          <em>ler e interpretar</em> antes de cozinhar. O
+          <code>JSON.parse</code> é o ato de interpretar.
+        </p>
+      </div>
+
+      <pre><code>const txt = '{"nome":"Ana"}';
+const obj = JSON.parse(txt);
+console.log(obj.nome);  // "Ana"</code></pre>
+
+      <div class="concept-gotcha">
+        <span aria-hidden="true">⚠️</span>
+        <p>
+          <strong>Armadilha:</strong> status 200 OK não garante JSON válido.
+          O servidor pode responder texto puro — e aí <code>.json()</code>
+          rejeita com <code>SyntaxError</code>.
+        </p>
+      </div>
+
+      <fieldset class="concept-quiz">
+        <legend>Verifique seu entendimento</legend>
+        <p class="quiz-q">Como um corpo JSON vindo da API se torna objeto em JavaScript?</p>
+        <label><input type="radio" name="q-json" value="0"> O navegador converte sozinho ao receber</label>
+        <label><input type="radio" name="q-json" value="1"> Com <code>JSON.parse()</code> ou <code>response.json()</code></label>
+        <label><input type="radio" name="q-json" value="2"> Basta atribuir a uma variável</label>
+        <button class="quiz-check" type="button">Verificar resposta</button>
+        <div class="quiz-feedback" role="status" aria-live="polite"></div>
+      </fieldset>
+
+      <button class="mark-seen" type="button" disabled>Acerto o quiz para liberar</button>
+    </article>
+
+  </div>
+
+  <div class="unlock">
+    <div>
+      <p class="eyebrow">Progresso da fundação</p>
+      <p id="unlock-msg" role="status" aria-live="polite">
+        0 de 5 conceitos concluídos.
+      </p>
+    </div>
+    <button id="unlock-btn" class="primary" type="button" disabled>
+      Missões bloqueadas
+    </button>
+  </div>
+</section>
+
+
+<section class="phase locked" id="missoes">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Fase 02 / Inspeção e correção</p>
+      <h2>Investigue. Corrija. Valide.</h2>
+      <p class="lead">
+        Seis desafios para identificar falhas, testar hipóteses e validar
+        suas correções com testes automáticos.
+      </p>
+    </div>
+    <div class="section-counter"><strong>06</strong><span>missões</span></div>
+  </div>
+  <div class="mission-intro">
+    <span class="mission-intro-icon" aria-hidden="true">⌘</span>
+    <p>
+      <strong>Seu objetivo</strong>
+      <span>Leia o código, encontre o problema, faça a correção
+      e execute os testes para verificar o resultado.</span>
+    </p>
+  </div>
+  <div id="missions-container"></div>
+</section>
+
+
+<section class="phase" id="modulos">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Workspace / Ferramentas</p>
+      <h2>Continue explorando</h2>
+      <p class="lead">Acesse os demais componentes deste ambiente de desenvolvimento.</p>
+    </div>
+  </div>
+  <div class="module-grid">
+    <article class="module-card">
+      <span class="module-icon" aria-hidden="true">⌘</span>
+      <span class="module-type">01 / Desenvolvimento</span>
+      <h3>JavaScript Lab</h3>
+      <p>Fundamentos, DOM, requisições assíncronas e resolução de problemas.</p>
+      <a class="primary" href="#fundacao">Acessar laboratório ↗</a>
+    </article>
+    <article class="module-card">
+      <span class="module-icon" aria-hidden="true">▦</span>
+      <span class="module-type">02 / Aplicação web</span>
+      <h3>E-commerce</h3>
+      <p>Catálogo, filtros, detalhes e carrinho integrados ao Flask.</p>
+      <a class="primary" href="/ecommerce">Abrir e-commerce ↗</a>
+    </article>
+    <article class="module-card">
+      <span class="module-icon" aria-hidden="true">{ }</span>
+      <span class="module-type">03 / API local</span>
+      <h3>API de usuários</h3>
+      <p>Consulte os dados locais e investigue cenários de resposta.</p>
+      <a class="primary" href="{{ url_for('listar') }}" target="_blank" rel="noopener">Consultar endpoint ↗</a>
+    </article>
+    <article class="module-card">
+      <span class="module-icon" aria-hidden="true">⇄</span>
+      <span class="module-type">04 / Integração externa</span>
+      <h3>Proxy de API</h3>
+      <p>Veja o Flask consultar uma API externa e encaminhar ao cliente.</p>
+      <a class="primary" href="{{ url_for('proxy_usuarios') }}" target="_blank" rel="noopener">Consultar API externa ↗</a>
+    </article>
+  </div>
+</section>
+
+{% endblock %}

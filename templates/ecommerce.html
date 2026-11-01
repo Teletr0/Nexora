@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <title>NEXORA — Tecnologia para ir além</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='ecommerce/ecommerce.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='ecommerce/features.css') }}">
+  <script src="{{ url_for('static', filename='ecommerce/ecommerce.js') }}" defer></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='ecommerce/mission-03.css') }}">
+</head>
+<body>
+  <div class="announcement">NEXORA COMMERCE <span>·</span> PROJETO DE DESENVOLVIMENTO DE SISTEMAS</div>
+  <header class="site-header">
+    <a class="brand" href="{{ url_for('ecommerce.ecommerce_page') if config.get('ECOMMERCE_BLUEPRINT', false) else '/ecommerce' }}"><span class="brand-mark">N</span>NEXORA<span class="brand-light">.</span></a>
+    <nav><a href="#catalogo">Produtos</a><a href="#manifesto">Nossa seleção</a></nav>
+    <div class="header-actions"><label class="header-search"><span>⌕</span><span class="sr-only">Pesquisar produtos</span><input id="header-search" type="search" placeholder="Buscar tecnologia..."></label>
+      <button class="wishlist-trigger" id="open-wishlist" type="button" aria-label="Abrir lista de desejos">♡ <span>Desejos</span> <b id="wishlist-count">0</b></button>
+      <button class="cart-trigger" id="open-cart" type="button" aria-label="Abrir carrinho">▱ <span>Carrinho</span> <b id="cart-count">0</b></button></div>
+  </header>
+  <main>
+    <section class="hero" id="manifesto"><div class="hero-copy"><p class="eyebrow">✳ &nbsp; TECNOLOGIA, SEM RUÍDO</p><h1>Ferramentas para<br><em>ir além.</em></h1><p class="hero-description">Uma seleção inteligente de tecnologia para criar, trabalhar e construir o próximo passo.</p><a class="button button-light" href="#catalogo">Explorar coleção <span>↘</span></a><div class="hero-proof">01 / CURADORIA &nbsp;&nbsp; 02 / PERFORMANCE &nbsp;&nbsp; 03 / POSSIBILIDADE</div></div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-core"><span>N</span><small>ENGINEERED<br>FOR WHAT'S NEXT</small></div><small class="art-label">NXR / 2026</small></div></section>
+    <section class="trust-strip"><div><b>✳</b><span><strong>Seleção criteriosa</strong><small>Produtos escolhidos a dedo</small></span></div><div><b>⌁</b><span><strong>Experiência fluida</strong><small>Encontre o que procura</small></span></div><div><b>◇</b><span><strong>Feito para evoluir</strong><small>Ferramentas para suas ideias</small></span></div></section>
+    <section class="catalog-section" id="catalogo"><div class="section-heading"><div><p class="eyebrow">A COLEÇÃO / 001</p><h2>Escolhas <em>extraordinárias.</em></h2><p class="section-description">Tecnologia que acompanha sua ambição.</p></div><div id="catalog-count" class="catalog-count">Carregando catálogo…</div></div>
+      <div class="toolbar"><label class="search-field">⌕ <span class="sr-only">Buscar no catálogo</span><input id="catalog-search" type="search" placeholder="O que você procura?"></label><label class="filter-label">Categoria <select id="category-filter"><option value="">Todas as categorias</option></select></label><label class="filter-label">Ordenar <select id="sort-filter"><option value="featured">Destaques</option><option value="price-asc">Menor preço</option><option value="price-desc">Maior preço</option><option value="name-asc">Nome (A–Z)</option></select></label></div>
+      <p id="catalog-status" class="status" role="status" aria-live="polite">Carregando produtos…</p><div id="product-grid" class="product-grid"></div>
+      <div id="catalog-error" class="error-panel" hidden><h3>Não foi possível carregar a coleção.</h3><p id="catalog-error-message"></p><button class="button button-dark" id="retry-load" type="button">Tentar novamente</button></div>
+    </section>
+    <section class="closing-banner"><div><p class="eyebrow">O PRÓXIMO PASSO COMEÇA AQUI</p><h2>Menos limites.<br><em>Mais possibilidades.</em></h2></div><a href="#catalogo">Encontrar meu próximo recurso ↗</a></section>
+  </main>
+  <footer><a class="brand" href="/ecommerce">NEXORA<span class="brand-light">.</span></a><p>Experiência demonstrativa · API Flask local · Sem transações reais</p></footer>
+  <div class="overlay" id="cart-overlay" hidden></div><aside class="cart-drawer" id="cart-drawer" aria-hidden="true"><div class="drawer-head"><div><p class="eyebrow">SUA SELEÇÃO</p><h2>Carrinho <small id="cart-title-count">(0)</small></h2></div><button class="icon-button" id="close-cart" aria-label="Fechar carrinho" type="button">×</button></div><div id="cart-items" class="cart-items"></div><div id="cart-empty" class="cart-empty"><h3>Seu carrinho está vazio.</h3><p>Encontre algo que acompanhe suas ideias.</p><button class="button button-dark" id="continue-shopping" type="button">Explorar produtos</button></div><div id="cart-summary" class="cart-summary" hidden><div><span>Subtotal</span><strong id="cart-subtotal">R$ 0,00</strong></div><p>Frete e pagamento não estão incluídos nesta demonstração.</p><button class="button disabled" type="button" disabled>Checkout indisponível</button></div></aside>
+  <div class="overlay" id="wishlist-overlay" hidden></div><aside class="wishlist-drawer" id="wishlist-drawer" aria-hidden="true" aria-label="Lista de desejos"><div class="drawer-head"><div><p class="eyebrow">PARA DEPOIS</p><h2>Lista de desejos <small id="wishlist-title-count">(0)</small></h2></div><button class="icon-button" id="close-wishlist" aria-label="Fechar lista de desejos" type="button">×</button></div><div id="wishlist-items" class="wishlist-items"></div><div id="wishlist-empty" class="cart-empty"><h3>Sua lista está vazia.</h3><p>Salve os produtos que quer encontrar depois.</p><button class="button button-dark" id="continue-wishlist" type="button">Explorar produtos</button></div></aside>
+  <dialog id="product-dialog"><button id="close-dialog" class="icon-button dialog-close" type="button" aria-label="Fechar detalhes">×</button><div id="dialog-content"></div></dialog><div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="{{ url_for('static', filename='ecommerce/mission-03.js') }}" defer></script>
+</body></html>

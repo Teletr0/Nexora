@@ -1,0 +1,8 @@
+[
+  {"id":1,"name":"Ana Beatriz Silva","email":"ana@escola.br","address":{"city":"São Paulo"},"company":{"name":"Tech Educa"}},
+  {"id":2,"name":"Carlos Eduardo Lima","email":"carlos@escola.br","address":{"city":"Belo Horizonte"},"company":{"name":"DataJovem"}},
+  {"id":3,"name":"Fernanda Souza","email":"fernanda@escola.br","address":{"city":"Recife"},"company":{"name":"Recife Tech"}},
+  {"id":4,"name":"João Pedro Alves","email":"joao@escola.br","address":{"city":"Porto Alegre"},"company":{"name":"Sul Sistemas"}},
+  {"id":5,"name":"Larissa Nogueira","email":"larissa@escola.br","address":{"city":"Salvador"},"company":{"name":"Bahia Cloud"}},
+  {"id":6,"name":"Marcos Vinícius","email":"marcos@escola.br","address":{"city":"Curitiba"},"company":{"name":"Paraná Digital"}}
+]

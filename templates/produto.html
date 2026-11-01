@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <title>{% if product %}{{ product.name }} — NEXORA{% else %}Produto não encontrado — NEXORA{% endif %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='ecommerce/ecommerce.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='ecommerce/features.css') }}">
+</head>
+<body>
+  <div class="announcement">NEXORA COMMERCE <span>·</span> PROJETO DE DESENVOLVIMENTO DE SISTEMAS</div>
+  <header class="site-header">
+    <a class="brand" href="/ecommerce"><span class="brand-mark">N</span>NEXORA<span class="brand-light">.</span></a>
+    <nav><a href="/ecommerce#catalogo">Produtos</a><a href="/ecommerce#manifesto">Nossa seleção</a></nav>
+    <div class="header-actions"><a class="button button-dark" href="/ecommerce#catalogo">Voltar à loja</a></div>
+  </header>
+  <main class="product-page">
+    {% if product %}
+      <a class="product-page-back" href="/ecommerce#catalogo">← Voltar à coleção</a>
+      <article class="product-page-card">
+        <img class="product-page-image" src="{{ product.image }}" alt="{{ product.name }}">
+        <div class="product-page-copy">
+          <p class="eyebrow">{{ product.category }} / NXR-{{ product.id }}</p>
+          <h1>{{ product.name }}</h1>
+          <p class="product-page-description">{{ product.description }}</p>
+          <p class="product-page-price">R$ {{ "%.2f"|format(product.price)|replace(".", ",") }}</p>
+          <p class="product-page-stock">
+            {% if product.stock > 0 %}{{ product.stock }} unidades disponíveis{% else %}Produto indisponível no momento.{% endif %}
+          </p>
+          <a class="button button-dark" href="/ecommerce#catalogo">Continuar explorando</a>
+        </div>
+      </article>
+    {% else %}
+      <section class="product-page-not-found" role="status">
+        <p class="eyebrow">CATÁLOGO NEXORA</p>
+        <h1>Produto não encontrado.</h1>
+        <p>Este produto não existe ou não está mais disponível no catálogo.</p>
+        <a class="button button-dark" href="/ecommerce#catalogo">Voltar à loja</a>
+      </section>
+    {% endif %}
+  </main>
+  <footer><a class="brand" href="/ecommerce">NEXORA<span class="brand-light">.</span></a><p>Experiência demonstrativa · API Flask local · Sem transações reais</p></footer>
+</body>
+</html>
